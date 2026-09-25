@@ -1,166 +1,129 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="description" content="loader js css and javascript">
-<meta name="keywords" content="HTML,CSS,JavaScript">
-<meta name="author" content="Rohan Tandel">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<style>
-.loader {
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  height: 120px;
-  width: 120px;
-}
-
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
-
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-h1, h3, .loader, button {
-  color: green;
-  position: relative;
-}
-body {
-  background-color: lightblue;
-}
-button {
-  background-color: lightgreen;
-  border: solid 1px grey;
-  box-shadow: 0 0 0;
-}
-
-/*/ start -- popup styling/*/
-.popupbox {
-  background: floralwhite;
-  box-shadow: 0px 0px 10px 10px #b9b0a9;
-  left: 32%;
-  padding: 5%;
-  position: absolute;
-  top: 15%;
-  width: 25%;
-  z-index: 12;
-}
-.popup-close {
-  padding: 1% 10%;
-}
-/*/ end -- popup styling/*/
-
-/*----------start---overlay for popup----------*/
-#overlay {
-    background-color: rgba(0,0,0,0.5);
-    bottom: 0;
-    cursor: pointer;
-    display: none;
-    height: 100%;
-    left: 0;
-    position: fixed;
-    right: 0;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-}
-/*----------end---overlay for popup----------*/
-</style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Nexora — SaaS Development Foundation</title>
+  <meta name="description" content="Nexora is a flexible SaaS development foundation for building, scaling and operating modern products." />
+  <link rel="stylesheet" href="styles.css" />
 </head>
-<body style="margin:0;">
-<center>
-<h1>Welcome</h1>
-<h3 id="loading-text">Loading...</h3>
-<h3 id="loading-success">Successful...</h3>
-<div id="loader" class="loader"></div>
+<body>
+  <div class="progress"></div>
+  <header class="nav">
+    <a class="brand" href="#top"><span class="mark">N</span><span>Nexora</span></a>
+    <nav>
+      <a href="#foundation">Foundation</a>
+      <a href="#flexibility">Flexibility</a>
+      <a href="#roadmap">Roadmap</a>
+    </nav>
+    <a class="nav-cta" href="#showcase">Explore</a>
+  </header>
 
-<br>
-<button id="loader-button" onclick="loadingButton()"><h3>Start - Loading</h3></button>
-<!-- <button onclick="success()">Stop - Loading</button> -->
-</center>
-<div id="overlay" onclick="off()">
-  <div id="text">
-      <center>
-  <div id="popupbox" class="popupbox">
-    <div>
-      <h2>Refresh completed !</h2>
-      <br><br><br>
-      <button onclick="hideCallPopUp();" id="popup-close" class="popup-close"><h3>close</h3></button>
-    </div>
-  </div>
-</center>
-  </div>
-</div>
-<script>
+  <main id="top">
+    <section class="hero">
+      <div class="eyebrow">SAAS DEVELOPMENT FOUNDATION</div>
+      <h1>Build the product.<br><span>Leave the infrastructure to Nexora.</span></h1>
+      <p class="hero-copy">A configurable foundation for multi-tenant SaaS products, database isolation, event-driven workloads, integrations, automation and the evolution from modular monoliths to distributed services.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="#showcase">See the foundation <span>↓</span></a>
+        <a class="button secondary" href="#roadmap">What we're planning</a>
+      </div>
+      <div class="hero-meta"><span>Configurable</span><i></i><span>Multi-tenant</span><i></i><span>Event-driven</span><i></i><span>Language-agnostic direction</span></div>
+    </section>
 
-/*------------start----loader Js----------------------*/
-var myVar;
-/*---------------start loader----------------*/
-function loadingButton() {
-  console.log('loadingButton --- --- --');
-    hideCallPopUp();
-    showLoader();
-    setTimeout(function(){ success(); }, 3000);
+    <section class="statement" id="foundation">
+      <div class="section-label">01 / THE IDEA</div>
+      <div class="statement-grid">
+        <h2>One foundation.<br>Different products.<br>Different responsibilities.</h2>
+        <div><p>The platform provides reusable engineering capabilities without forcing every product into the same business model.</p><p>Products choose what they need: database topology, tenant isolation, routes, workers, events, integrations and deployment strategy.</p></div>
+      </div>
+    </section>
 
-}
+    <section class="visual-section" id="showcase">
+      <div class="visual-heading"><div><div class="section-label">02 / PLATFORM</div><h2>The foundation at a glance.</h2></div><p>Products plug into shared capabilities while keeping their own domain and responsibilities.</p></div>
+      <figure><img src="assets/01-platform-overview.png" alt="Nexora SaaS Platform overview" loading="lazy"></figure>
+    </section>
 
-function hideLoader() {
-  console.log('hideLoader --- --- --');
-  document.getElementById("loader").style.display = "none";
-  document.getElementById("loading-text").style.display = "none";
-  document.getElementById("loading-success").style.display = "none";
-  hideCallPopUp();
-  off();//show overlay function 
-}
+    <section class="capabilities">
+      <div class="section-label">03 / CORE CAPABILITIES</div>
+      <h2>Capabilities, not business rules.</h2>
+      <div class="cap-grid">
+        <article><b>01</b><h3>Product Kernel</h3><p>Product registration, routes, modules and configuration.</p></article>
+        <article><b>02</b><h3>Tenant Management</h3><p>Business, client, tenant context and provisioning.</p></article>
+        <article><b>03</b><h3>Database Abstraction</h3><p>Master, client, schemas, pools and isolation strategies.</p></article>
+        <article><b>04</b><h3>Identity & RBAC</h3><p>Authentication, roles, permissions and client membership.</p></article>
+        <article><b>05</b><h3>Events & Queues</h3><p>Asynchronous communication and event-driven workflows.</p></article>
+        <article><b>06</b><h3>Workers</h3><p>Background processing, scheduled work and async consumers.</p></article>
+        <article><b>07</b><h3>Integrations</h3><p>APIs, SFTP, object storage, webhooks and external systems.</p></article>
+        <article><b>08</b><h3>Observability</h3><p>Logs, metrics, traces, request context and operational visibility.</p></article>
+        <article><b>09</b><h3>Configuration</h3><p>Environment and product-driven configuration without hard-coding topology.</p></article>
+        <article><b>10</b><h3>Infrastructure Abstraction</h3><p>Keep application code independent from underlying infrastructure choices.</p></article>
+        <article><b>11</b><h3>Extensibility</h3><p>Add capabilities when real products prove they are reusable.</p></article>
+        <article class="dark-card"><b>+</b><h3>Your next capability</h3><p>The foundation grows from real product requirements.</p></article>
+      </div>
+    </section>
 
-function success() {
-  console.log('success --- --- --');
-  hideLoader();
-  document.getElementById("loader-button").style.display = "block";
-  document.getElementById("loading-success").style.display = "block"; 
-  showCallPopUp();
-}
+    <section class="visual-section compact">
+      <div class="visual-heading"><div><div class="section-label">04 / PRODUCT ONBOARDING</div><h2>Plug a product into the platform.</h2></div><p>Independent routes, database requirements and capabilities can be registered without rewriting the platform core.</p></div>
+      <figure><img src="assets/02-product-onboarding.png" alt="Product onboarding into Nexora" loading="lazy"></figure>
+    </section>
 
-function showLoader() {
-  console.log('showLoader --- --- --');
-  document.getElementById("loader-button").style.display = "none";
-  document.getElementById("loading-success").style.display = "none";
-  document.getElementById("loading-text").style.display = "block";
-  document.getElementById("loader").style.display = "block";
-}
-/*----------------end loader------------------*/
+    <section class="visual-section" id="flexibility">
+      <div class="visual-heading"><div><div class="section-label">05 / TENANCY</div><h2>Flexible business, client and user model.</h2></div><p>Support the hierarchy that a product actually needs rather than forcing every product into one tenancy model.</p></div>
+      <figure><img src="assets/03-tenant-model.png" alt="Business, products, clients and users model" loading="lazy"></figure>
+    </section>
 
-/*------------------start popup---------------*/
-function showCallPopUp() {
-  on();//show overlay function
-  document.getElementById("popupbox").style.display = "block";
-}
+    <section class="isolation">
+      <div class="section-label">06 / DATABASE FLEXIBILITY</div>
+      <div class="isolation-head"><h2>Choose the isolation model per product.</h2><p>The same platform can support very different database responsibilities.</p></div>
+      <div class="models">
+        <button class="model active" data-model="master"><span>01</span><strong>Master only</strong><small>Simple product, no client DB.</small></button>
+        <button class="model" data-model="client"><span>02</span><strong>Master + Client</strong><small>Separate master and client data.</small></button>
+        <button class="model" data-model="schema"><span>03</span><strong>Multi-schema</strong><small>Client isolation inside a DB.</small></button>
+        <button class="model" data-model="multi"><span>04</span><strong>Multiple DBs</strong><small>Separate databases per client.</small></button>
+        <button class="model" data-model="extra"><span>05</span><strong>Extra DBs</strong><small>Reporting, analytics, audit or other stores.</small></button>
+      </div>
+      <div class="model-detail" id="model-detail"><div class="detail-icon">01</div><div><h3>Master only</h3><p>A lightweight product can operate entirely from its master database. No tenant-specific database layer is required.</p></div></div>
+    </section>
 
-function hideCallPopUp() {
-  off();//hide overlay function
-  document.getElementById("popupbox").style.display = "none";
-}
-/*---------------stop popup--------------*/
+    <section class="visual-section">
+      <div class="visual-heading"><div><div class="section-label">07 / INTERNAL ARCHITECTURE</div><h2>Eleven components. One composable foundation.</h2></div><p>Event-driven, serverless-ready and designed for products with different runtime and infrastructure needs.</p></div>
+      <figure><img src="assets/04-foundation-and-flexibility.png" alt="Nexora foundation components and flexibility" loading="lazy"></figure>
+    </section>
 
-/*---------------start overlay-----------*/
-/*show overlay*/
-function on() {
-    document.getElementById("overlay").style.display = "block";
-}
-/*hide overlay*/
-function off() {
-    document.getElementById("overlay").style.display = "none";
-}
-/*---------------stop overlay-------------*/
-hideLoader();//default hide activity
-</script>
+    <section class="principles">
+      <div class="section-label">08 / BOUNDARIES</div>
+      <h2>Flexibility comes from clear boundaries.</h2>
+      <div class="principle-grid">
+        <div><span>01</span><h3>Tenant isolation</h3><p>Resolve trusted client context before accessing client-specific data.</p></div>
+        <div><span>02</span><h3>Repository isolation</h3><p>Domains own their data access rather than reaching into another domain's repository.</p></div>
+        <div><span>03</span><h3>Database isolation</h3><p>No accidental cross-domain database access or cross-domain transactions.</p></div>
+        <div><span>04</span><h3>Communication boundaries</h3><p>Use explicit contracts, events and later HTTP or gRPC when services split.</p></div>
+      </div>
+    </section>
 
+    <section class="roadmap" id="roadmap">
+      <div class="section-label">09 / WHAT WE ARE PLANNING</div>
+      <div class="roadmap-head"><h2>The foundation keeps evolving.</h2><p>New capabilities are introduced when real products prove that they should be shared.</p></div>
+      <div class="roadmap-grid">
+        <div class="road-card"><span>01</span><h3>Independent routes</h3><p>Products own their route trees and modules.</p></div>
+        <div class="road-card"><span>02</span><h3>Node + Go + Python</h3><p>Use the right runtime for the workload while preserving platform boundaries.</p></div>
+        <div class="road-card"><span>03</span><h3>AI + MCP</h3><p>Debugging, code review, documentation and development context through controlled integrations.</p></div>
+        <div class="road-card"><span>04</span><h3>Auto deployments</h3><p>Automated build, test, security checks and environment deployment.</p></div>
+        <div class="road-card"><span>05</span><h3>Release management</h3><p>Versioning, changelogs, release workflows and rollback support.</p></div>
+        <div class="road-card"><span>06</span><h3>Branching rules</h3><p>Structured Git workflows with automated checks and protected release paths.</p></div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="section-label">10 / THE DIRECTION</div>
+      <h2>Build what the business needs.<br><span>Let the foundation handle the repetition.</span></h2>
+      <p>Nexora is intended to make product development faster without turning every product into the same product.</p>
+      <a class="button primary" href="#top">Back to top ↑</a>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="mark">N</span><span>Nexora</span></div><span>SaaS Development Foundation · 2026</span></footer>
+  <script src="script.js"></script>
 </body>
 </html>
